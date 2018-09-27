@@ -1,9 +1,9 @@
-# Ionic2-Calendar directive
+# ap-ionic-calendar directive
 
 Ionic2 calendar directive
 
 # Demo
-https://twinssbc.github.io/Ionic2-Calendar/demo/
+https://lbertenasco.github.io/ap-ionic-calendar/demo/
 
 # Dependency
 The latest version has below dependency:      
@@ -18,15 +18,15 @@ version 0.4.x depends on Ionic 3.9.2 version onwards.
 
 # Usage
 
-Install: `npm install ionic2-calendar --save`
+Install: `npm install ap-ionic-calendar --save`
 
-Import the ionic2-calendar module:
+Import the ap-ionic-calendar module:
 
 ``` typescript
 import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app/app.component';
-import { NgCalendarModule  } from 'ionic2-calendar';
+import { NgCalendarModule  } from 'ap-ionic-calendar';
 
 
 @NgModule({
@@ -48,7 +48,7 @@ export class AppModule {}
 If you are using PageModule, you need to import the NgCalendarModule in your page module
 
 ``` typescript
-import { NgCalendarModule  } from 'ionic2-calendar';
+import { NgCalendarModule  } from 'ap-ionic-calendar';
 
 @NgModule({
   declarations: [
@@ -89,10 +89,10 @@ Add below lines in *main.prod.ts*
 
 
 ``` typescript
-import { CalendarComponent } from 'ionic2-calendar/calendar';
-import { MonthViewComponent } from 'ionic2-calendar/monthview';
-import { WeekViewComponent } from 'ionic2-calendar/weekview';
-import { DayViewComponent } from 'ionic2-calendar/dayview';
+import { CalendarComponent } from 'ap-ionic-calendar/calendar';
+import { MonthViewComponent } from 'ap-ionic-calendar/monthview';
+import { WeekViewComponent } from 'ap-ionic-calendar/weekview';
+import { DayViewComponent } from 'ap-ionic-calendar/dayview';
 ```
 
 
@@ -246,7 +246,7 @@ Default value: false
             var today = new Date();
             today.setHours(0, 0, 0, 0);
             event.setHours(0, 0, 0, 0);
-    
+
             if (this.calendar.mode === 'month') {
                 if (event.getFullYear() < today.getFullYear() || (event.getFullYear() === today.getFullYear() && event.getMonth() <= today.getMonth())) {
                     this.lockSwipeToPrev = true;
@@ -416,19 +416,19 @@ Type: TemplateRef\<IMonthViewEventDetailTemplateContext\>
 The template provides customized view for event detail section in the monthview
 ``` html
         <ng-template #template let-showEventDetail="showEventDetail" let-selectedDate="selectedDate" let-noEventsLabel="noEventsLabel">
-	    ... 
+	    ...
         </ng-template>
 
         <calendar ... [monthviewEventDetailTemplate]="template"></calendar>
 ```
 * weekviewHeaderTemplate (version >= 0.4.5)  
 Type: TemplateRef\<IDisplayWeekViewHeader\>     
-The template provides customized view for day header in the weekview 
-``` html 
-    <ng-template #template let-viewDate="viewDate"> 
-        <div class="custom-day-header"> {{ viewDate.dayHeader }} </div> 
-    </ng-template> 
- 
+The template provides customized view for day header in the weekview
+``` html
+    <ng-template #template let-viewDate="viewDate">
+        <div class="custom-day-header"> {{ viewDate.dayHeader }} </div>
+    </ng-template>
+
     <calendar ... [weekviewHeaderTemplate]="template"></calendar>
 ```
 * weekviewAllDayEventTemplate    
@@ -578,6 +578,9 @@ For example, if an allDay event ending to 2014-05-10, then endTime is
 * allDay    
 Indicates the event is allDay event or regular event
 
+* instant
+Indicates the event is instant thus doesn't have an endTime
+
 **Note** The calendar only watches for the eventSource reference for performance consideration. That means only you manually reassign the eventSource value, the calendar gets notified, and this is usually fit to the scenario when the range is changed, you load a new data set from the backend. In case you want to manually insert/remove/update the element in the eventSource array, you can call instance method ‘loadEvents’ event to notify the calendar manually.
 
 # Instance Methods
@@ -585,7 +588,7 @@ Indicates the event is allDay event or regular event
 When this method is called, the calendar will be forced to reload the events in the eventSource array. This is only necessary when you directly modify the element in the eventSource array.
 
 ``` typescript
-import { CalendarComponent } from "ionic2-calendar/calendar";
+import { CalendarComponent } from "ap-ionic-calendar/calendar";
 
 @Component({
     selector: 'page-home',
@@ -600,6 +603,7 @@ export class HomePage {
             title: 'test',
             startTime: startTime,
             endTime: endTime,
+            instant: false,
             allDay: false
         });
         this.myCalendar.loadEvents();
@@ -611,7 +615,7 @@ export class HomePage {
 You could use *locale* option to achieve the localization.  
 If locale option is not specified, the calendar will use the LOCALE_ID set at the module level.  
 By default, the LOCALE_ID is **en-US**. You can override it in the module as below. If you pass **undefined**, the LOCALE_ID will be detected using the browser language setting. But using explicit value is recommended, as browser has different level of localization support.    
-Note that the event detail section in the month view doesn't support *locale* option, only LOCALE_ID takes effect. This is because it uses DatePipe in html directly. You could easily leverage customized event detail template to switch to other locale. 
+Note that the event detail section in the month view doesn't support *locale* option, only LOCALE_ID takes effect. This is because it uses DatePipe in html directly. You could easily leverage customized event detail template to switch to other locale.
 
 ``` typescript
 import { NgModule, LOCALE_ID } from '@angular/core';

@@ -530,7 +530,7 @@ export class MonthViewComponent implements ICalendarComponent, OnInit, OnChanges
         for (let i = 0; i < len; i += 1) {
             let event = eventSource[i],
                 eventStartTime = new Date(event.startTime.getTime()),
-                eventEndTime = new Date(event.endTime.getTime()),
+                eventEndTime = event.instant ? eventStartTime : new Date(event.endTime.getTime()),
                 st:Date,
                 et:Date;
 

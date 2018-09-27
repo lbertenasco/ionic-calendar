@@ -6,7 +6,7 @@
         'app': 'app', // 'dist',
         'rxjs': 'https://unpkg.com/rxjs@5.0.1',
         'angular2-in-memory-web-api': 'https://unpkg.com/angular2-in-memory-web-api', // get latest
-        'ionic2-calendar': '../src',
+        'ap-ionic-calendar': '../src',
         'ionic-angular': 'https://unpkg.com/ionic-angular@2.3.0',
         'pages': 'pages',
         'intl': 'https://unpkg.com/intl@1.2.5'
@@ -17,7 +17,7 @@
         'app': {main: './main.ts', defaultExtension: 'ts'},
         'rxjs': {defaultExtension: 'js'},
         'angular2-in-memory-web-api': {defaultExtension: 'js'},
-        'ionic2-calendar': {main: './index.ts', defaultExtension: 'ts'},
+        'ap-ionic-calendar': {main: './index.ts', defaultExtension: 'ts'},
         'ionic-angular': {main: 'index.js'},
         'pages': {defaultExtension: 'ts'},
         'intl': {main: 'index.js', defaultExtension: 'js'}

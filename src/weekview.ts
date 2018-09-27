@@ -348,7 +348,7 @@ import { IDisplayAllDayEvent } from "./calendar";
           line-height: 50px;
           text-align: center;
           width: 50px;
-          border-left: 1px solid #ddd;  
+          border-left: 1px solid #ddd;
         }
 
         [dir="rtl"] .weekview-allday-label {
@@ -747,7 +747,7 @@ export class WeekViewComponent implements ICalendarComponent, OnInit, OnChanges 
         for (let i = 0; i < len; i += 1) {
             let event = eventSource[i];
             let eventStartTime = new Date(event.startTime.getTime());
-            let eventEndTime = new Date(event.endTime.getTime());
+            let eventEndTime = event.instant ? eventStartTime : new Date(event.endTime.getTime());
 
             if (event.allDay) {
                 if (eventEndTime <= utcStartTime || eventStartTime >= utcEndTime) {

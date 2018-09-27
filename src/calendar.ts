@@ -8,6 +8,7 @@ export interface IEvent {
     endTime: Date;
     startTime: Date;
     title: string;
+    instant: boolean;
 }
 
 export interface IRange {
@@ -134,7 +135,7 @@ export enum Step {
         <template #monthviewDefaultEventDetailTemplate let-showEventDetail="showEventDetail" let-selectedDate="selectedDate" let-noEventsLabel="noEventsLabel">
             <ion-list class="event-detail-container" has-bouncing="false" *ngIf="showEventDetail" overflow-scroll="false">
                 <ion-item *ngFor="let event of selectedDate?.events" (click)="eventSelected(event)">
-                        <span *ngIf="!event.allDay" class="monthview-eventdetail-timecolumn">{{event.startTime|date: 'HH:mm'}}
+                        <span *ngIf="!event.instant && !event.allDay" class="monthview-eventdetail-timecolumn">{{event.startTime|date: 'HH:mm'}}
                             -
                             {{event.endTime|date: 'HH:mm'}}
                         </span>
@@ -172,7 +173,7 @@ export enum Step {
                 [dir]="dir"
                 [lockSwipeToPrev]="lockSwipeToPrev"
                 [lockSwipes]="lockSwipes"
-                [spaceBetween]="spaceBetween"       
+                [spaceBetween]="spaceBetween"
                 (onRangeChanged)="rangeChanged($event)"
                 (onEventSelected)="eventSelected($event)"
                 (onTimeSelected)="timeSelected($event)"

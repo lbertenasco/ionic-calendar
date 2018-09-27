@@ -1,18 +1,18 @@
 {
-    "name": "ionic2-calendar",
-    "version": "0.2.18",
-    "description": "Ionic2 calendar component",
+    "name": "ap-ionic-calendar",
+    "version": "0.0.1",
+    "description": "Ionic calendar component",
     "keywords": [
         "Ionic2",
         "calendar"
     ],
     "author": {
-        "name": "twinssbc"
+        "name": "lbertenasco"
     },
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/twinssbc/Ionic2-Calendar.git"
+        "url": "git+https://github.com/lbertenasco/ap-ionic-calendar.git"
     },
     "scripts": {
         "build": "rm -rf dist && tsc",
@@ -40,6 +40,6 @@
         "ionic-angular": "2.3.0",
         "rxjs": "5.0.1",
         "zone.js": "0.7.2",
-        "intl": "^1.2.5"
+        "intl": "1.2.5"
     }
 }
