@@ -4,7 +4,7 @@ import { MyApp } from './app/app.component';
 import { AboutPage } from './pages/about';
 import { HomePage } from './pages/home';
 import { TabsPage } from './pages/tabs';
-import { NgCalendarModule  } from 'ap-ionic-calendar';
+import { ApCalendarModule  } from 'ap-ionic-calendar';
 
 @NgModule({
     declarations: [
@@ -14,7 +14,7 @@ import { NgCalendarModule  } from 'ap-ionic-calendar';
         TabsPage
     ],
     imports: [
-        NgCalendarModule,
+        ApCalendarModule,
         IonicModule.forRoot(MyApp)
     ],
     bootstrap: [IonicApp],

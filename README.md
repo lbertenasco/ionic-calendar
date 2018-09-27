@@ -26,7 +26,7 @@ Import the ap-ionic-calendar module:
 import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app/app.component';
-import { NgCalendarModule  } from 'ap-ionic-calendar';
+import { ApCalendarModule  } from 'ap-ionic-calendar';
 
 
 @NgModule({
@@ -34,7 +34,7 @@ import { NgCalendarModule  } from 'ap-ionic-calendar';
         MyApp
     ],
     imports: [
-        NgCalendarModule,
+        ApCalendarModule,
         IonicModule.forRoot(MyApp)
     ],
     bootstrap: [IonicApp],
@@ -45,10 +45,10 @@ import { NgCalendarModule  } from 'ap-ionic-calendar';
 export class AppModule {}
 ```
 
-If you are using PageModule, you need to import the NgCalendarModule in your page module
+If you are using PageModule, you need to import the ApCalendarModule in your page module
 
 ``` typescript
-import { NgCalendarModule  } from 'ap-ionic-calendar';
+import { ApCalendarModule  } from 'ap-ionic-calendar';
 
 @NgModule({
   declarations: [
@@ -56,7 +56,7 @@ import { NgCalendarModule  } from 'ap-ionic-calendar';
   ],
   imports: [
     IonicPageModule.forChild(MyPage),
-    NgCalendarModule
+    ApCalendarModule
   ],
   entryComponents: [
     MyPage
