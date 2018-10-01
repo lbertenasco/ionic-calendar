@@ -9,7 +9,7 @@ import { Component, Input, Output, EventEmitter, ElementRef, SimpleChanges } fro
         </ion-scroll>
     `
 })
-export class initPositionScrollComponent extends Scroll {
+export class initPositionScrollComponent {
     @Input() initPosition:number;
     @Input() emitEvent:boolean;
     @Output() onScroll = new EventEmitter<number>();
@@ -20,7 +20,6 @@ export class initPositionScrollComponent extends Scroll {
     private listenerAttached:boolean = false;
 
     constructor(el:ElementRef) {
-        super(el);
         this.element = el;
     }
 
