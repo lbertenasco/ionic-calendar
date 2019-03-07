@@ -3,9 +3,9 @@ import { Component, Input, Output, EventEmitter, ElementRef, SimpleChanges } fro
 @Component({
     selector: 'init-position-scroll',
     template: `
-        <ion-scroll scrollY="true" zoom="false" style="height:100%">
+        <ion-content scrollY="true" zoom="false" style="height:100%">
             <ng-content></ng-content>
-        </ion-scroll>
+        </ion-content>
     `
 })
 export class initPositionScrollComponent {

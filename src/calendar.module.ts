@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CommonModule} from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import 'intl';
 import 'intl/locale-data/jsonp/en';
@@ -13,7 +14,10 @@ import { initPositionScrollComponent } from './init-position-scroll';
     declarations: [
         MonthViewComponent, WeekViewComponent, DayViewComponent, CalendarComponent, initPositionScrollComponent
     ],
-    imports: [IonicModule],
+    imports: [
+        CommonModule,
+        IonicModule
+    ],
     exports: [CalendarComponent],
     entryComponents: [CalendarComponent]
 })
