@@ -1,7 +1,6 @@
 import { DatePipe } from '@angular/common';
-import { Slides } from 'ionic-angular';
 import { Component, OnInit, OnChanges, HostBinding, Input, Output, EventEmitter, SimpleChanges, ViewChild, ViewEncapsulation, TemplateRef, ElementRef } from '@angular/core';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 
 import { ICalendarComponent, IDayView, IDayViewRow, IDisplayEvent, IEvent, ITimeSelected, IRange, CalendarMode, IDateFormatter } from './calendar';
 import { CalendarService } from './calendar.service';
@@ -375,7 +374,7 @@ import { IDisplayAllDayEvent } from "./calendar";
     encapsulation: ViewEncapsulation.None
 })
 export class DayViewComponent implements ICalendarComponent, OnInit, OnChanges {
-    @ViewChild('daySlider') slider:Slides;
+    @ViewChild('daySlider') slider: any;
     @HostBinding('class.dayview') class = true;
 
     @Input() dayviewAllDayEventTemplate:TemplateRef<IDisplayAllDayEvent>;

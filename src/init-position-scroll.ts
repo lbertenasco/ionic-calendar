@@ -1,4 +1,3 @@
-import { Scroll } from 'ionic-angular';
 import { Component, Input, Output, EventEmitter, ElementRef, SimpleChanges } from '@angular/core';
 
 @Component({

@@ -1,7 +1,6 @@
 import { DatePipe } from '@angular/common';
-import { Slides } from 'ionic-angular';
 import { Component, OnInit, OnChanges, HostBinding, Input, Output, EventEmitter, SimpleChanges, ViewChild, ViewEncapsulation, TemplateRef, ElementRef } from '@angular/core';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 
 import { ICalendarComponent, IDisplayEvent, IEvent, ITimeSelected, IRange, IWeekView, IWeekViewRow, IWeekViewDateRow, CalendarMode, IDateFormatter } from './calendar';
 import { CalendarService } from './calendar.service';
@@ -459,7 +458,7 @@ import { IDisplayAllDayEvent } from "./calendar";
     encapsulation: ViewEncapsulation.None
 })
 export class WeekViewComponent implements ICalendarComponent, OnInit, OnChanges {
-    @ViewChild('weekSlider') slider:Slides;
+    @ViewChild('weekSlider') slider: any;
     @HostBinding('class.weekview') class = true;
 
     @Input() weekviewAllDayEventTemplate:TemplateRef<IDisplayAllDayEvent>;

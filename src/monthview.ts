@@ -1,7 +1,6 @@
 import { Component, OnInit, OnChanges, Input, Output, EventEmitter, SimpleChanges, ViewChild, TemplateRef } from '@angular/core';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 import { DatePipe } from '@angular/common';
-import { Slides } from 'ionic-angular';
 
 import { ICalendarComponent, IEvent, IMonthView, IMonthViewRow, ITimeSelected, IRange, CalendarMode, IDateFormatter } from './calendar';
 import { CalendarService } from './calendar.service';
@@ -226,7 +225,7 @@ import { IMonthViewDisplayEventTemplateContext } from "./calendar";
     `]
 })
 export class MonthViewComponent implements ICalendarComponent, OnInit, OnChanges {
-    @ViewChild('monthSlider') slider:Slides;
+    @ViewChild('monthSlider') slider:any;
 
     @Input() monthviewDisplayEventTemplate:TemplateRef<IMonthViewDisplayEventTemplateContext>;
     @Input() monthviewInactiveDisplayEventTemplate:TemplateRef<IMonthViewDisplayEventTemplateContext>;

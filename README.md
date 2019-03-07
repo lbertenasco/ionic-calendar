@@ -24,7 +24,7 @@ Import the ap-ionic-calendar module:
 
 ``` typescript
 import { NgModule } from '@angular/core';
-import { IonicApp, IonicModule } from 'ionic-angular';
+import { IonicApp, IonicModule } from '@ionic/angular';
 import { MyApp } from './app/app.component';
 import { ApCalendarModule  } from 'ap-ionic-calendar';
 
