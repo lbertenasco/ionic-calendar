@@ -18,6 +18,9 @@ import { initPositionScrollComponent } from './init-position-scroll';
         CommonModule,
         IonicModule
     ],
+    providers: [
+        CalendarService
+    ],
     exports: [CalendarComponent],
     entryComponents: [CalendarComponent]
 })

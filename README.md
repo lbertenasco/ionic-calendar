@@ -15,6 +15,10 @@ version 0.2.9+ depends on Ionic 2.3.0 version onwards.
 version 0.3.x depends on Ionic 3.1.1 version onwards.
 version 0.4.x depends on Ionic 3.9.2 version onwards.
 
+## For Angular 7, Ionic 4
+Install version `0.4.1`.
+Add to `polyfills.ts` `(window as any).global = window;`
+
 
 # Usage
 
