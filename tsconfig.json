@@ -20,7 +20,6 @@
     "src/weekview.ts",
     "src/dayview.ts",
     "src/init-position-scroll.ts",
-    "typings/globals/es6-shim/index.d.ts"
   ],
   "exclude": [
     "node_modules"

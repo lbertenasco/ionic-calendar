@@ -1,7 +1,6 @@
 import { DatePipe } from '@angular/common';
-import { Slides } from 'ionic-angular';
 import { Component, OnInit, OnChanges, HostBinding, Input, Output, EventEmitter, SimpleChanges, ViewChild, ViewEncapsulation, TemplateRef, ElementRef } from '@angular/core';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 
 import { ICalendarComponent, IDayView, IDayViewRow, IDisplayEvent, IEvent, ITimeSelected, IRange, CalendarMode, IDateFormatter } from './calendar';
 import { CalendarService } from './calendar.service';
@@ -10,11 +9,12 @@ import { IDisplayAllDayEvent } from "./calendar";
 @Component({
     selector: 'dayview',
     template: `
-        <ion-slides #daySlider [loop]="true" [dir]="dir" [spaceBetween]="spaceBetween" (ionSlideDidChange)="onSlideChanged()">
+        <!--ion-slides #daySlider [loop]="true" [dir]="dir" [spaceBetween]="spaceBetween" (ionSlideDidChange)="onSlideChanged()"-->
+        <ion-slides #daySlider [dir]="dir" (ionSlideDidChange)="onSlideChanged()">
             <ion-slide>
                 <div class="dayview-allday-table">
                     <div class="dayview-allday-label">{{allDayLabel}}</div>
-                    <ion-scroll scrollY="true" zoom="false" class="dayview-allday-content-wrapper">
+                    <ion-content scrollY="true" zoom="false" class="dayview-allday-content-wrapper">
                         <table class="table table-bordered dayview-allday-content-table">
                             <tbody>
                             <tr>
@@ -35,7 +35,7 @@ import { IDisplayAllDayEvent } from "./calendar";
                             </tr>
                             </tbody>
                         </table>
-                    </ion-scroll>
+                    </ion-content>
                 </div>
                 <init-position-scroll *ngIf="0===currentViewIndex" class="dayview-normal-event-container" [initPosition]="initScrollPosition" [emitEvent]="preserveScrollPosition" (onScroll)="setScrollPosition($event)">
                     <table class="table table-bordered table-fixed dayview-normal-event-table">
@@ -76,7 +76,7 @@ import { IDisplayAllDayEvent } from "./calendar";
             <ion-slide>
                 <div class="dayview-allday-table">
                     <div class="dayview-allday-label">{{allDayLabel}}</div>
-                    <ion-scroll scrollY="true" zoom="false" class="dayview-allday-content-wrapper">
+                    <ion-content scrollY="true" zoom="false" class="dayview-allday-content-wrapper">
                         <table class="table table-bordered dayview-allday-content-table">
                             <tbody>
                             <tr>
@@ -97,7 +97,7 @@ import { IDisplayAllDayEvent } from "./calendar";
                             </tr>
                             </tbody>
                         </table>
-                    </ion-scroll>
+                    </ion-content>
                 </div>
                 <init-position-scroll *ngIf="1===currentViewIndex" class="dayview-normal-event-container" [initPosition]="initScrollPosition" [emitEvent]="preserveScrollPosition" (onScroll)="setScrollPosition($event)">
                     <table class="table table-bordered table-fixed dayview-normal-event-table">
@@ -138,7 +138,7 @@ import { IDisplayAllDayEvent } from "./calendar";
             <ion-slide>
                 <div class="dayview-allday-table">
                     <div class="dayview-allday-label">{{allDayLabel}}</div>
-                    <ion-scroll scrollY="true" zoom="false" class="dayview-allday-content-wrapper">
+                    <ion-content scrollY="true" zoom="false" class="dayview-allday-content-wrapper">
                         <table class="table table-bordered dayview-allday-content-table">
                             <tbody>
                             <tr>
@@ -159,7 +159,7 @@ import { IDisplayAllDayEvent } from "./calendar";
                             </tr>
                             </tbody>
                         </table>
-                    </ion-scroll>
+                    </ion-content>
                 </div>
                 <init-position-scroll *ngIf="2===currentViewIndex" class="dayview-normal-event-container" [initPosition]="initScrollPosition" [emitEvent]="preserveScrollPosition" (onScroll)="setScrollPosition($event)">
                     <table class="table table-bordered table-fixed dayview-normal-event-table">
@@ -375,7 +375,7 @@ import { IDisplayAllDayEvent } from "./calendar";
     encapsulation: ViewEncapsulation.None
 })
 export class DayViewComponent implements ICalendarComponent, OnInit, OnChanges {
-    @ViewChild('daySlider') slider:Slides;
+    @ViewChild('daySlider') slider: any;
     @HostBinding('class.dayview') class = true;
 
     @Input() dayviewAllDayEventTemplate:TemplateRef<IDisplayAllDayEvent>;

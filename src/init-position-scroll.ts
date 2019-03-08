@@ -1,12 +1,11 @@
-import { Scroll } from 'ionic-angular';
 import { Component, Input, Output, EventEmitter, ElementRef, SimpleChanges } from '@angular/core';
 
 @Component({
     selector: 'init-position-scroll',
     template: `
-        <ion-scroll scrollY="true" zoom="false" style="height:100%">
+        <ion-content scrollY="true" zoom="false" style="height:100%">
             <ng-content></ng-content>
-        </ion-scroll>
+        </ion-content>
     `
 })
 export class initPositionScrollComponent {
